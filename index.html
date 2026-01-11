@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PWA Meta Tags -->
+  <meta name="theme-color" content="#0f3d36" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="المصطبة العلمية" />
+  <link rel="apple-touch-icon" href="/icons/icon-192x192.png" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>المصطبة العلمية - Muslim Youth Forum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800&family=Tajawal:wght@300;400;500;700;800&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Tajawal', 'Cairo', 'sans-serif'],
+            cairo: ['Cairo', 'sans-serif'],
+          },
+          colors: {
+            // Existing colors
+            emerald: {
+              700: '#047857',
+              800: '#065f46',
+              850: '#064e3b',
+              900: '#022c22',
+            },
+            teal: {
+              800: '#115e59',
+              900: '#134e4a',
+            },
+            gold: {
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+            },
+            // New Landing Page Colors
+            'islamic-green': '#14463a',
+            'islamic-green-light': '#3b7a66',
+            'accent-gold': '#d4a045',
+            'accent-gold-dark': '#b0812e',
+            'glass-white': 'rgba(255, 255, 255, 0.1)',
+            'glass-border': 'rgba(255, 255, 255, 0.2)',
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-out',
+            'pulse-slow': 'pulse 5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'spin-slow': 'spin 120s linear infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* --- Existing App Styles --- */
+    .islamic-bg {
+      background-color: #0f3d36;
+      background-image:
+        linear-gradient(rgba(15, 61, 54, 0.95), rgba(15, 61, 54, 0.9)),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 15-15 15L15 15z' fill='none' stroke='%23fbbf24' stroke-width='1.5' stroke-opacity='0.4'/%3E%3Cpath d='M0 30l15 15-15 15L-15 45z' fill='none' stroke='%23fbbf24' stroke-width='1.5' stroke-opacity='0.4'/%3E%3Cpath d='M60 30l15 15-15 15L45 45z' fill='none' stroke='%23fbbf24' stroke-width='1.5' stroke-opacity='0.4'/%3E%3Cpath d='M30 60l15 15-15 15L15 75z' fill='none' stroke='%23fbbf24' stroke-width='1.5' stroke-opacity='0.4'/%3E%3Ccircle cx='30' cy='30' r='5' fill='%23d97706' fill-opacity='0.3'/%3E%3C/svg%3E");
+      background-size: 60px 60px;
+    }
+
+    .mashrabiya-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='20' height='20' fill='none'/%3E%3Cpath d='M0 0h20v20H0z' fill='none' stroke='%23ffffff' stroke-opacity='0.15' stroke-width='1'/%3E%3Cpath d='M10 0v20M0 10h20' stroke='%23ffffff' stroke-opacity='0.1' stroke-width='0.5'/%3E%3C/svg%3E");
+    }
+
+    .glass-panel {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(4, 47, 46, 0.6) 100%);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .glass-panel-gold {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(20, 20, 20, 0.3) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 4px 25px rgba(245, 158, 11, 0.15);
+    }
+
+    .glass-card-hover:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      border-color: rgba(251, 191, 36, 0.4);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(6, 78, 59, 0.8) 100%);
+      transition: all 0.3s ease-out;
+    }
+
+    .text-glow {
+      text-shadow: 0 0 15px rgba(16, 185, 129, 0.9);
+    }
+
+    .gold-glow {
+      text-shadow: 0 0 20px rgba(251, 191, 36, 0.7);
+    }
+
+    .giant-symbol-arch {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      background-repeat: no-repeat;
+      opacity: 0.1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 200V100C20 50 60 10 100 10s80 40 80 90v100' fill='none' stroke='%23fcd34d' stroke-width='3' /%3E%3Cpath d='M30 200V105C30 65 65 30 100 30s70 35 70 75v95' fill='none' stroke='%23ffffff' stroke-width='1.5' /%3E%3C/svg%3E");
+    }
+
+    .giant-symbol-star {
+      position: absolute;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M200 0 L250 150 L400 200 L250 250 L200 400 L150 250 L0 200 L150 150 Z' fill='none' stroke='%23fcd34d' stroke-width='3'/%3E%3Ccircle cx='200' cy='200' r='100' stroke='%23ffffff' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    }
+
+    .corner-ornament-complex {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0v30l10-10h20l-10-10h10l10-10H0z' fill='%23fbbf24' fill-opacity='0.6'/%3E%3Cpath d='M0 0h50v3H3v47h-3v-50' fill='%23fbbf24' fill-opacity='0.8'/%3E%3C/svg%3E");
+    }
+
+    .corner-tl {
+      top: 0;
+      left: 0;
+    }
+
+    .corner-tr {
+      top: 0;
+      right: 0;
+      transform: scaleX(-1);
+    }
+
+    .corner-bl {
+      bottom: 0;
+      left: 0;
+      transform: scaleY(-1);
+    }
+
+    .corner-br {
+      bottom: 0;
+      right: 0;
+      transform: scale(-1);
+    }
+
+    /* --- NEW Landing Page Styles --- */
+    .glass-panel-heavy {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+      position: relative;
+    }
+
+    .bg-pattern-overlay {
+      background-image: url('https://raw.githubusercontent.com/NinjaWorld1234/Files/refs/heads/main/muslim_youth_forum_landing_page.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .text-gradient-gold {
+      background: linear-gradient(to bottom, #ffd700, #ff8c00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+
+    .logo-box {
+      width: 80px;
+      height: 80px;
+      background-color: #033a2c;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+
+  <link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-D8qJdBK1.js"></script>
+<link rel="manifest" href="/manifest.webmanifest"><script id="vite-plugin-pwa:register-sw" src="/registerSW.js"></script></head>
+
+<body
+  class="bg-[#0f3d36] text-white min-h-screen font-sans overflow-hidden selection:bg-gold-500 selection:text-black bg-pattern-overlay bg-fixed">
+  <!-- Dark overlay for better text readability -->
+  <div class="fixed inset-0 bg-black/50 -z-10"></div>
+  <div id="root"></div>
+</body>
+
+</html>
